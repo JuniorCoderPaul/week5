@@ -1,0 +1,30 @@
+@import 'variables';
+body {
+  font-family: $font-text;
+  background-color: $asphalt;
+  color: $clouds;
+  font-size: $text-font-size;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-headings;
+}
+ul {
+  li {
+    display: inline-block;
+  }
+  a {
+    display: block;
+    padding: 20px;
+    color: $asphalt;
+    border-#{$nav-border-side}: 1px solid $asphalt;
+  }
+}
+
+@media screen and (min-width: 760) {
+  $nav-border-side: right;
+}
