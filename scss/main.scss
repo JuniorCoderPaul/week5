@@ -1,6 +1,7 @@
 @import 'variables';
+
 body {
-  font-family: $font-text;
+  font-family: $fonts-text;
   background-color: $asphalt;
   color: $clouds;
   font-size: $text-font-size;
@@ -13,18 +14,30 @@ h5,
 h6 {
   font-family: $font-headings;
 }
-ul {
-  li {
-    display: inline-block;
+nav {
+  // Setting a local value for the variable. This will overite the value for the !default but only inside this declaration
+  $text-font-size: 20px;
+  font-size: $text-font-size;
+  background-color: $clouds;
+  ul {
+    li {
+      display: inline-block;
+      a {
+        display: block;
+        padding: 20px;
+        color: $asphalt;
+        /*
+          Using variable interpolation.
+          Adding border- in front of the variable which compiles to border-radius
+        */
+        border-#{$nav-border-side}: 1px solid $asphalt;
+        transition: all 300ms ease-in-out;
+        &:hover,
+        &:focus {
+          color: $clouds;
+          background-color: $asphalt;
+        }
+      }
+    }
   }
-  a {
-    display: block;
-    padding: 20px;
-    color: $asphalt;
-    border-#{$nav-border-side}: 1px solid $asphalt;
-  }
-}
-
-@media screen and (min-width: 760) {
-  $nav-border-side: right;
 }
